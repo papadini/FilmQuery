@@ -8,7 +8,6 @@ import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
 import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
-	private static final String URL = "jdbc:mysql://localhost:3306/sdvid";
   
   DatabaseAccessor db = new DatabaseAccessorObject();
   
@@ -23,7 +22,7 @@ public class FilmQueryApp {
    
   }
 
-  private void test() {
+  private void test() throws SQLException {
     Film film = db.getFilmById(1);
     System.out.println(film);
   }
