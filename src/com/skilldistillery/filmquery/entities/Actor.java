@@ -5,7 +5,9 @@ public class Actor {
 	private String firstName;
 	private String lastName;
 	
-	
+	public Actor () {
+		
+	}
 	public Actor(int id, String firstName, String lastName) {
 		super();
 		this.id = id;
@@ -64,7 +66,7 @@ public class Actor {
 	}
 	@Override
 	public String toString() {
-		return "Actor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "Actor id=" + id + ", Name= " + firstName + ", " + lastName ;
 	}
 	
 	
