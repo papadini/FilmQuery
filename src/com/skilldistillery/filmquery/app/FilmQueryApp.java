@@ -46,53 +46,59 @@ public class FilmQueryApp {
 	}
 
 	private void startUserInterface(Scanner input) throws SQLException {
-		menu();
-		int choice = input.nextInt();
-		switch (choice) {
-		case 1:
-			System.out.println("Enter the film id you would like to get info on.");
-			int filmID = input.nextInt();
-			Film film = db.getFilmById(filmID);
-			if (film != null) {
-				System.out.println(film);
-			} else {
-				System.out.println("There is no film with that id");
-			}
-			break;
-			
-		case 2: System.out.println("Enter keyword to search films by.");
+		boolean exit = false;
+		while (exit != true) {
+			menu();
+			int choice = input.nextInt();
+			switch (choice) {
+			case 1:
+				System.out.println("Enter the film id you would like to get info on.");
+				int filmID = input.nextInt();
+				Film film = db.getFilmById(filmID);
+				if (film != null) {
+					System.out.println(film);
+				} else {
+					System.out.println("There is no film with that id");
+				}
+				break;
+
+			case 2:
+				System.out.println("Enter keyword to search films by.");
 				String keyword = input.next();
 				List<Film> filmKeyword = db.getFilmByKeyword(keyword);
-				if ( filmKeyword.size() != 0) {
-				for (Film film2 : filmKeyword) {
-					System.out.println( film2 );
-				}
-				}
-				else {
+				if (filmKeyword.size() != 0) {
+					for (Film film2 : filmKeyword) {
+						System.out.println(film2);
+					}
+				} else {
 					System.out.println("There is no film with that id");
-					
-				}
-		
-			break;
-			
-		default:
-			System.out.println("Invalid Option");
 
+				}
+
+				break;
+			case 3: exit = true;
+				break;
+
+			default:
+				System.out.println("Invalid Option");
+			}
 		}
 
 	}
-	public void menu () {
-		for( int i = 0; i < 10 ; i ++) {
-		System.out.print("\uD83C\uDFA6");
+
+	public void menu() {
+		for (int i = 0; i < 10; i++) {
+			System.out.print("\uD83C\uDFA6");
 		}
 		System.out.println();
 		System.out.println("1) search by id");
 		System.out.println("2) search by keyword");
+		System.out.println("3) Exit");
 		System.out.println("Enter your choice");
-		for( int i = 0; i < 10 ; i ++) {
+		for (int i = 0; i < 10; i++) {
 			System.out.print("\uD83C\uDFA6");
-			}
-		
+		}
+
 	}
 
 }
