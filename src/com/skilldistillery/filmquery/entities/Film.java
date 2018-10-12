@@ -1,5 +1,6 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.List;
 import java.util.Set;
 
 public class Film {
@@ -14,14 +15,14 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeature;
-	private Actor actor;
+	private List<Actor> actor;
 
 	public Film() {
 
 	}
 
 	public Film(int id, String title, String description, int releaseYear, String language, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeature, Actor actor) {
+			double rentalRate, int length, double replacementCost, String rating, String specialFeature, List<Actor> actor) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -127,11 +128,11 @@ public class Film {
 	
 
 	
-	public Actor getActor() {
+	public List<Actor> getActor() {
 		return actor;
 	}
 
-	public void setActor(Actor actor) {
+	public void setActor(List<Actor> actor) {
 		this.actor = actor;
 	}
 
@@ -214,7 +215,17 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film id=" + id + ", title=" + title + ", releaseYear=" + releaseYear +", description=" + description + " ,Language=" + language + ", " + actor;
+		return "Film id=" + id + ", title=" + title + ", releaseYear=" + releaseYear +", description=" + description + " ,Language=" + language + ", " 
+	+  "actors" + printActors();
+	
 	}
+	public String printActors() {
+        List<Actor> printActors = this.actor;
+        String actorString = "";
+        for (Actor actor : printActors) {
+            actorString += actor.getFirstName() + " " + actor.getLastName() + " | ";
+        }
+        return actorString;
+    }
 
 }

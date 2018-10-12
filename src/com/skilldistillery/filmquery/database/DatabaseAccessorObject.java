@@ -45,7 +45,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			actor.setId( filmResult.getInt( "actor.id" ));
 			actor.setFirstName(filmResult.getString( "actor.first_name" ));
 			actor.setLastName(filmResult.getString( "actor.last_name" ));
-			film.setActor(actor);
+			
 			
 
 		}
@@ -87,7 +87,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			actor.setId( filmResult.getInt( "actor.id" ));
 			actor.setFirstName(filmResult.getString( "actor.first_name" ));
 			actor.setLastName(filmResult.getString( "actor.last_name" ));
-			film.setActor(actor);
+			//film.setActor(setActor(actor));
 
 			films.add(film);
 
